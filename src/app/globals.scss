@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text: #05030f;
+  --inverseText: #fbfbfe;  
+  --textWhite: #fbfbfe;
+  --textDark: #05030f;
+  --background: #fbfbfe;
+  --primary: #433bff;
+  --secondary: #dedcff;
+  --accent: #493fff;  
+  
+  &[data-theme="dark"] {
+    --text: #fbfbfe;
+    --inverseText: #05030f;
+    --textWhite: #fbfbfe;
+    --textDark: #05030f;
+    --background: #05030f;
+    --primary: #433bff;
+    --secondary: #dedcff;
+    --accent: #493fff;  
+  };
+};
+
+.navbar { z-index: 9900; }
+
+body {
+  color: var(--text);
+  background: var(--background);
+  font-family: "Inter";
+  overflow-x: hidden;
+  width: 100vw;
+};
