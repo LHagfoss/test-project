@@ -9,7 +9,7 @@ export default function ContentOne() {
     return (
         <>
             <div className="relative w-[100vw] h-[200vh] flex justify-center">
-                <div className="container w-full h-full md:mx-20 pt-20 flex justify-center">
+                <div className="container w-full h-full md:mx-20 pt-20 flex justify-center inset-0">
                     <motion.div
                         initial={{ scale: 0 }}
                         animate={{ scale: 1 }}
@@ -20,11 +20,13 @@ export default function ContentOne() {
                             position: "sticky",
                             top: "50%",
                         }}
-                        className="w-[50px] h-[50px] bg-[#2f27ce]"
-                    ></motion.div>
+                        className="w-[50px] h-[50px] bg-[#2f27ce] flex justify-center items-center"
+                    >
+                        Hello
+                    </motion.div>
                 </div>
             </div>
-            <div className="h-[3asdadadaadad00px]"></div>
+            <div className="h-[300px]"></div>
         </>
     );
 };
