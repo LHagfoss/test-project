@@ -68,13 +68,13 @@ export default function ContentTwo() {
     return (
         <div className="w-[100vw] flex justify-center mb-20">
             <div className="container md:mx-20 bg-[--background] flex flex-col gap-5 relative">
-                <div className="grid grid-cols-5 gap-5 h-[40vh] ">
+                <div className="relative grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
                     {uke1.map((item) => (
                         <motion.div 
                             key={item.id} 
                             layoutId={item.id.toString()} 
                             onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer bg-white p-5 rounded-3xl shadow-md relative inset-0"
+                            className="cursor-pointer bg-white p-5 rounded-3xl shadow-md min-h-[300px] relative inset-0"
                         >
                             <div className="flex gap-1">
                                 <motion.h5 className="text-lg text-gray-600">{item.subtitle}</motion.h5>
@@ -89,13 +89,13 @@ export default function ContentTwo() {
                     ))}
                 </div>
 
-                <div className="grid grid-cols-5 gap-5 h-[40vh]">
+                <div className="relative grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
                     {uke2.map((item) => (
                         <motion.div 
                             key={item.id} 
                             layoutId={item.id.toString()} 
                             onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer bg-white p-5 rounded-3xl shadow-md relative inset-0"
+                            className="cursor-pointer bg-white p-5 rounded-3xl shadow-md relative inset-0 min-h-[300px]"
                         >
                             <div className="flex gap-1">
                                 <motion.h5 className="text-lg text-gray-600">{item.subtitle}</motion.h5>
@@ -109,6 +109,7 @@ export default function ContentTwo() {
                         </motion.div>
                     ))}
                 </div>
+
                 <AnimatePresence>
                     {selectedId && (
                         <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center bg-[#33333340] backdrop-blur-sm">
