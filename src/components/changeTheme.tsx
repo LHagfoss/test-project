@@ -8,7 +8,7 @@ export default function ChangeTheme() {
     }, [theme]);
 
     const toggleTheme = () => {
-        setTheme(theme === "light" ? "dark" : "light");
+        setTheme(prevTheme => (prevTheme === "light" ? "dark" : "light"));
     };
 
     return (
