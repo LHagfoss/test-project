@@ -7,7 +7,7 @@ export default function ScrollProgress() {
     return (
         <motion.div
             style={{ height }}
-            className="fixed top-1 right-1 w-2 bg-[--accent] z-10 rounded-full"
+            className="fixed top-1 left-1 w-2 bg-[--accent] z-10 rounded-full"
         />
     )
 }

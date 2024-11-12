@@ -4,16 +4,16 @@ import Image from "next/image";
 
 import { texts } from "./data/text";
 
-import image1 from "../../public/Images/IMG_1.jpg"
-import image2 from "../../public/Images/IMG_2.jpg"
-import image3 from "../../public/Images/IMG_3.jpg"
-import image4 from "../../public/Images/IMG_4.jpg"
-import image5 from "../../public/Images/IMG_5.jpg"
-import image6 from "../../public/Images/IMG_6.jpg"
-import image7 from "../../public/Images/IMG_7.jpg"
-import image8 from "../../public/Images/IMG_8.jpg"
-import image9 from "../../public/Images/IMG_9.jpg"
-import image10 from "../../public/Images/IMG_10.jpg"
+import image1 from '../../public/Images/IMG_1.jpg';
+import image2 from '../../public/Images/IMG_2.jpg';
+import image3 from '../../public/Images/IMG_3.jpg';
+import image4 from '../../public/Images/IMG_4.jpg';
+import image5 from '../../public/Images/IMG_5.jpg';
+import image6 from '../../public/Images/IMG_6.jpg';
+import image7 from '../../public/Images/IMG_7.jpg';
+import image8 from '../../public/Images/IMG_8.jpg';
+import image9 from '../../public/Images/IMG_9.jpg';
+import image10 from '../../public/Images/IMG_10.jpg';
 
 interface Item {
     id: number;
@@ -115,15 +115,15 @@ export default function ContentTwo() {
                         <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center bg-[#33333340] backdrop-blur-sm">
                             <motion.div 
                                 layoutId={selectedId.toString()} 
-                                className="relative inset-0 bg-[--backgroundWhite] container mx-20 h-[80vh] p-8 rounded-3xl shadow-lg card overflow-auto"
+                                className="relative inset-0 bg-[--backgroundWhite] container mx-5 md:mx-20 h-[80vh] p-8 rounded-3xl shadow-lg card overflow-auto"
                             >
                                 <div className="w-full h-[200vh] flex flex-col gap-3 relative inset-0 overflow-y-scroll scroll-m-2">
                                     <div className="flex gap-1">
-                                        <motion.h5 className="text-[1vw] text-gray-600">{uke1.find(item => item.id === selectedId)?.subtitle || uke2.find(item => item.id === selectedId)?.subtitle}</motion.h5>
-                                        <motion.h5 className="text-[1vw] text-gray-600">{uke1.find(item => item.id === selectedId)?.date || uke2.find(item => item.id === selectedId)?.date}</motion.h5>
+                                        <motion.h5 className="text-[4vw] md:text-[1vw] text-gray-600">{uke1.find(item => item.id === selectedId)?.subtitle || uke2.find(item => item.id === selectedId)?.subtitle}</motion.h5>
+                                        <motion.h5 className="text-[4vw] md:text-[1vw] text-gray-600">{uke1.find(item => item.id === selectedId)?.date || uke2.find(item => item.id === selectedId)?.date}</motion.h5>
                                     </div>
-                                    <motion.h2 className="text-[3vw] text-gray-800 leading-10">{uke1.find(item => item.id === selectedId)?.title || uke2.find(item => item.id === selectedId)?.title}</motion.h2>
-                                    <motion.p className="text-[1vw] my-5 text-gray-800">{uke1.find(item => item.id === selectedId)?.paragraph || uke2.find(item => item.id === selectedId)?.paragraph}</motion.p>
+                                    <motion.h2 className="text-[10vw] md:text-[3vw] text-gray-800 leading-10">{uke1.find(item => item.id === selectedId)?.title || uke2.find(item => item.id === selectedId)?.title}</motion.h2>
+                                    <motion.p className="text-[5vw] md:text-[1vw] my-5 text-gray-800">{uke1.find(item => item.id === selectedId)?.paragraph || uke2.find(item => item.id === selectedId)?.paragraph}</motion.p>
                                     <Image src={uke1.find(item => item.id === selectedId)?.image || uke2.find(item => item.id === selectedId)?.image} alt="" className="absolute bottom-0 w-full h-1/3 object-cover rounded-2xl"></Image>
                                     <motion.button 
                                         onClick={() => setSelectedId(null)} 

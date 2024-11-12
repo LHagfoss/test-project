@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-import image1 from "../../public/Images/IMG_1.jpg";
-import image2 from "../../public/Images/IMG_2.jpg";
-import image3 from "../../public/Images/IMG_3.jpg";
-import image4 from "../../public/Images/IMG_4.jpg";
-import image5 from "../../public/Images/IMG_5.jpg";
-import image6 from "../../public/Images/IMG_6.jpg";
-import image7 from "../../public/Images/IMG_7.jpg";
-import image8 from "../../public/Images/IMG_8.jpg";
-import image9 from "../../public/Images/IMG_9.jpg";
-import image10 from "../../public/Images/IMG_10.jpg";
+import image1 from '../../public/Images/IMG_1.jpg';
+import image2 from '../../public/Images/IMG_2.jpg';
+import image3 from '../../public/Images/IMG_3.jpg';
+import image4 from '../../public/Images/IMG_4.jpg';
+import image5 from '../../public/Images/IMG_5.jpg';
+import image6 from '../../public/Images/IMG_6.jpg';
+import image7 from '../../public/Images/IMG_7.jpg';
+import image8 from '../../public/Images/IMG_8.jpg';
+import image9 from '../../public/Images/IMG_9.jpg';
+import image10 from '../../public/Images/IMG_10.jpg';
 
 interface Item {
     id: number;
@@ -19,22 +19,22 @@ interface Item {
 }
 
 export default function ImageContent() {
-    const [selectedImageId, setSelectedImageId] = useState<number | null>(null)
+    const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
 
     const uke1: Item[] = [
-        { id: 100, image: image1 },
-        { id: 200, image: image2 },
-        { id: 300, image: image3 },
-        { id: 400, image: image4 },
-        { id: 500, image: image5 },
+        { id: 11, image: image1 },
+        { id: 12, image: image2 },
+        { id: 13, image: image3 },
+        { id: 14, image: image4 },
+        { id: 15, image: image5 },
     ];
 
     const uke2: Item[] = [
-        { id: 600, image: image6 },
-        { id: 700, image: image7 },
-        { id: 800, image: image8 },
-        { id: 900, image: image9 },
-        { id: 1000, image: image10 },
+        { id: 16, image: image6 },
+        { id: 17, image: image7 },
+        { id: 18, image: image8 },
+        { id: 19, image: image9 },
+        { id: 20, image: image10 },
     ];
 
     useEffect(() => {
@@ -68,9 +68,9 @@ export default function ImageContent() {
                             key={item.id} 
                             layoutId={item.id.toString()} 
                             onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[500px]"
+                            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[400px]"
                         >
-                            <Image src={item.image} alt="" className="object-cover rounded-3xl w-full h-full"/>
+                            <Image src={item.image} alt={`Image ${item.id}`} className="object-cover rounded-3xl w-full h-full"/>
                         </motion.div>
                     ))}
                 </div>
@@ -81,21 +81,21 @@ export default function ImageContent() {
                             key={item.id} 
                             layoutId={item.id.toString()} 
                             onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[500px]"
+                            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[400px]"
                         >
-                            <Image src={item.image} alt="" className="object-cover rounded-3xl w-full h-full"/>
+                            <Image src={item.image} alt={`Image ${item.id}`} className="object-cover rounded-3xl w-full h-full"/>
                         </motion.div>
                     ))}
                 </div>
 
                 <AnimatePresence>
                     {selectedImageId && (
-                        <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center bg-[#33333340] backdrop-blur-sm">
+                        <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center bg-[#33333340] backdrop-blur-sm z-10">
                             <motion.div 
                                 layoutId={selectedImageId.toString()} 
                                 className="relative inset-0 bg-white container mx-5 md:mx-20 h-[80vh] p-2 rounded-3xl shadow-lg card overflow-hidden"
                             >
-                                <Image src={uke1.find(item => item.id === selectedImageId)?.image || image1} alt="" layout="fill" objectFit="cover" className="w-full h-full"/>
+                                <Image src={uke1.find(item => item.id === selectedImageId)?.image || uke2.find(item => item.id === selectedImageId)?.image} alt="" layout="fill" objectFit="cover" className="w-full h-full"/>
                                 <motion.button 
                                     onClick={() => setSelectedImageId(null)}
                                     className="absolute top-0 right-0 bg-[--primary] text-white m-5 px-6 p-4 rounded-full"
@@ -103,6 +103,7 @@ export default function ImageContent() {
                                     X
                                 </motion.button>
                             </motion.div>
+
                         </div>
                     )}
                 </AnimatePresence>
