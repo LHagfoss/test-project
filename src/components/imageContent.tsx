@@ -74,7 +74,7 @@ export default function ImageContent() {
             key={item.id} 
             layoutId={item.id.toString()} 
             onClick={() => handleCardClick(item.id)}
-            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[400px]"
+            className="cursor-pointer rounded-3xl shadow-md relative inset-0 max-h-[400px]"
         >
             <div className={`absolute rounded-3xl inset-0 bg-gradient-to-br from-black to-gray-800 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
             <Image 
@@ -103,14 +103,14 @@ export default function ImageContent() {
                         <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center bg-[#33333340] backdrop-blur-sm z-10">
                             <motion.div 
                                 layoutId={selectedImageId.toString()} 
-                                className="relative inset-0 bg-white container mx-5 md:mx-20 h-[80vh] p-2 rounded-3xl shadow-lg card overflow-hidden"
+                                className="relative inset-0 bg-white container mx-5 md:mx-20 h-[80vh] rounded-3xl shadow-lg card overflow-hidden"
                             >
                                 <div className={`absolute inset-0 bg-gradient-to-br from-black to-gray-800 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
                                 <Image 
                                     src={uke1.find(item => item.id === selectedImageId)?.image || uke2.find(item => item.id === selectedImageId)?.image || ''} 
                                     alt="" 
                                     style={{ objectFit: 'cover' }}
-                                    className={`w-full max-h-1/3 ${imagesLoaded ? 'block' : 'hidden'}`}
+                                    className={`w-full h-full ${imagesLoaded ? 'block' : 'hidden'}`}
                                 />
                                 <motion.button 
                                     onClick={() => setSelectedImageId(null)}

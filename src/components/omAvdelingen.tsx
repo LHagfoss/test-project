@@ -12,18 +12,18 @@ export default function OmAvdelingen() {
                         <h1 className="md:text-[2.5vw] font-bold">Om selve IT-Avdelingen</h1>
                         <h3 className="md:text-[1.5vw] font-medium mb-10">Arbeidsmiljøet og HMS</h3>
                         <div className="h-full flex flex-col justify-between">
-                            <p className="md:text-[1.2vw]">
+                            <p className="md:text-[1vw]">
                                 Jeg har hatt det veldig bra med folkene her på jobb. Alle er veldig hjelpsomme og tilgjengelige, 
                                 noe som gjør det enkelt å få hjelp når det trengs. Det er en rolig og avslappet atmosfære, 
                                 og det er lett å ha en samtale med kollegene når det er behov for det. 
                                 Det er også hyggelig å se hvordan alle jobber sammen og støtter hverandre.
                             </p>
-                            <p className="md:text-[1.2vw]">
+                            <p className="md:text-[1vw]">
                                 Når det gjelder HMS (helse, miljø og sikkerhet), er det viktig å huske på noen viktige punkter. 
                                 For det første, er det lurt å alltid holde det ryddig. Jeg rydder tilbake verktøy og tusjer etc, etter jeg bruker dem, selvom jeg skal bruke dem gjennom dagen.
                                 De har ergonomiske stoler jeg sitter på når jeg slapper av og gjør hva jeg vil på laptoppen. Jeg prøver å sitte i en god stilling som hjepler med å IKKE ødelegge ryggen min.
                             </p>
-                            <p className="md:text-[1.2vw]">
+                            <p className="md:text-[1vw]">
                                 Jeg har hatt det gøy her og lært mye om drift og brukerstøtte, her i Kristiansand kommunene IT-avdelingen. 
                                 Jeg kanskje kunne ha jobbet her i tidligere framtid, men jeg heller foretrekker IT-utvikling.
                             </p>
