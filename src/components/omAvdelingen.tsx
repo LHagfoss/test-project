@@ -10,7 +10,7 @@ export default function OmAvdelingen() {
                 <div className="container h-full bg-blue-100 md:rounded-3xl p-10 flex flex-col md:flex-row">
                     <div className="text-[--textDark] flex-1 flex flex-col justify-between">
                         <h1 className="md:text-[2.5vw] font-bold">Om selve IT-Avdelingen</h1>
-                        <h3 className="md:text-[1.5vw] font-medium mb-10">Arbeidsmiljøet og HMS</h3>
+                        <h3 className="md:text-[1.5vw] font-medium mb-10">Arbeidsmiljøet, HMS og tanker</h3>
                         <div className="h-full flex flex-col justify-between">
                             <p className="md:text-[1vw]">
                                 Jeg har hatt det veldig bra med folkene her på jobb. Alle er veldig hjelpsomme og tilgjengelige, 

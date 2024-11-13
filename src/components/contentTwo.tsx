@@ -20,27 +20,27 @@ interface Item {
     subtitle: string;
     title: string;
     date: string;
-    paragraph: string;
+    paragraphs: any;
     image: any;
 };
 
 export default function ContentTwo() {
-    const [selectedId, setSelectedId] = useState<number | null>(null)
+    const [selectedId, setSelectedId] = useState<number | null>(null);
 
     const uke1: Item[] = [
-        { id: 1, title: "Dag 1", subtitle: "Mandag", date: "11. November", paragraph: texts.uke1[0], image: image1 },
-        { id: 2, title: "Dag 2", subtitle: "Tirsdag", date: "12. November", paragraph: texts.uke1[1], image: image2 },
-        { id: 3, title: "Dag 3", subtitle: "Onsdag", date: "13. November", paragraph: texts.uke1[2], image: image3 },
-        { id: 4, title: "Dag 4", subtitle: "Torsdag", date: "14. November", paragraph: texts.uke1[3], image: image4 },
-        { id: 5, title: "Dag 5", subtitle: "Fredag", date: "15. November", paragraph: texts.uke1[4], image: image5 },
+        { id: 1, title: "Dag 1", subtitle: "Mandag", date: "11. November", paragraphs: texts.uke1[0]?.paragraphs || [], image: image1 },
+        { id: 2, title: "Dag 2", subtitle: "Tirsdag", date: "12. November", paragraphs: texts.uke1[1]?.paragraphs || [], image: image2 },
+        { id: 3, title: "Dag 3", subtitle: "Onsdag", date: "13. November", paragraphs: texts.uke1[2]?.paragraphs || [], image: image3 },
+        { id: 4, title: "Dag 4", subtitle: "Torsdag", date: "14. November", paragraphs: texts.uke1[3]?.paragraphs || [], image: image4 },
+        { id: 5, title: "Dag 5", subtitle: "Fredag", date: "15. November", paragraphs: texts.uke1[4]?.paragraphs || [], image: image5 },
     ];
 
     const uke2: Item[] = [
-        { id: 6, title: "Dag 6", subtitle: "Mandag", date: "18. November", paragraph: texts.uke2[0], image: image6 },
-        { id: 7, title: "Dag 7", subtitle: "Tirsdag", date: "19. November", paragraph: texts.uke2[1], image: image7 },
-        { id: 8, title: "Dag 8", subtitle: "Onsdag", date: "20. November", paragraph: texts.uke2[2], image: image8 },
-        { id: 9, title: "Dag 9", subtitle: "Torsdag", date: "21. November", paragraph: texts.uke2[3], image: image9 },
-        { id: 10, title: "Dag 10", subtitle: "Fredag", date: "22. November", paragraph: texts.uke2[4], image: image10 },
+        { id: 6, title: "Dag 6", subtitle: "Mandag", date: "18. November", paragraphs: texts.uke2[0]?.paragraphs || [], image: image6 },
+        { id: 7, title: "Dag 7", subtitle: "Tirsdag", date: "19. November", paragraphs: texts.uke2[1]?.paragraphs || [], image: image7 },
+        { id: 8, title: "Dag 8", subtitle: "Onsdag", date: "20. November", paragraphs: texts.uke2[2]?.paragraphs || [], image: image8 },
+        { id: 9, title: "Dag 9", subtitle: "Torsdag", date: "21. November", paragraphs: texts.uke2[3]?.paragraphs || [], image: image9 },
+        { id: 10, title: "Dag 10", subtitle: "Fredag", date: "22. November", paragraphs: texts.uke2[4]?.paragraphs || [], image: image10 },
     ];
 
     useEffect(() => {
@@ -74,14 +74,16 @@ export default function ContentTwo() {
                             key={item.id} 
                             layoutId={item.id.toString()} 
                             onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer bg-white p-5 rounded-3xl shadow-md min-h-[300px] relative inset-0"
+                            className="cursor-pointer bg-[--background] p-5 rounded-3xl shadow-md min-h-[300px] relative inset-0 border border-[--textWhite]"
                         >
-                            <div className="flex gap-1">
-                                <motion.h5 className="text-lg text-gray-600">{item.subtitle}</motion.h5>
-                                <motion.h5 className="text-lg text-gray-600">{item.date}</motion.h5>
+                            <div className="flex gap-1 mb-1">
+                                <motion.h5 className="text-lg text-[--text]">{item.subtitle}</motion.h5>
+                                <motion.h5 className="text-lg text-[--text]">{item.date}</motion.h5>
                             </div>
-                            <motion.h2 className="text-3xl text-gray-800">{item.title}</motion.h2>
-                            <motion.p className="mt-4">{item.paragraph.length > 200 ? `${item.paragraph.substring(0, 200)}...` : item.paragraph}</motion.p>
+                            <motion.h2 className="text-4xl text-[--text]">{item.title}</motion.h2>
+                            <motion.p className="mt-4">
+                                {item.paragraphs.length > 0 ? `${item.paragraphs[0].text.substring(0, 200)}...` : ""}
+                            </motion.p>
                             <div className="absolute bottom-0 left-0 w-full p-4">
                                 <button type="button" className="w-full bg-[--primary] py-3 text-[--inverseText] rounded-2xl">Les mer</button>
                             </div>
@@ -95,14 +97,16 @@ export default function ContentTwo() {
                             key={item.id} 
                             layoutId={item.id.toString()} 
                             onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer bg-white p-5 rounded-3xl shadow-md relative inset-0 min-h-[300px]"
+                            className="cursor-pointer bg-[--background] p-5 rounded-3xl shadow-md relative inset-0 min-h-[300px] border border-[--textWhite]"
                         >
-                            <div className="flex gap-1">
-                                <motion.h5 className="text-lg text-gray-600">{item.subtitle}</motion.h5>
-                                <motion.h5 className="text-lg text-gray-600">{item.date}</motion.h5>
+                            <div className="flex gap-1 mb-1">
+                                <motion.h5 className="text-lg text-[--text]">{item.subtitle}</motion.h5>
+                                <motion.h5 className="text-lg text-[--text]">{item.date}</motion.h5>
                             </div>
-                            <motion.h2 className="text-3xl text-gray-800">{item.title}</motion.h2>
-                            <motion.p className="mt-4">{item.paragraph.length > 200 ? `${item.paragraph.substring(0, 200)}...` : item.paragraph}</motion.p>
+                            <motion.h2 className="text-4xl text-[--text]">{item.title}</motion.h2>
+                            <motion.p className="mt-4">
+                                {item.paragraphs.length > 0 ? `${item.paragraphs[0].text.substring(0, 200)}...` : ""}
+                            </motion.p>
                             <div className="absolute bottom-0 left-0 w-full p-4">
                                 <button type="button" className="w-full bg-[--primary] py-3 text-[--inverseText] rounded-2xl">Les mer</button>
                             </div>
@@ -115,22 +119,35 @@ export default function ContentTwo() {
                         <div className="fixed top-0 left-0 w-[100vw] h-[100vh] flex justify-center items-center bg-[#33333340] backdrop-blur-sm">
                             <motion.div 
                                 layoutId={selectedId.toString()} 
-                                className="relative inset-0 bg-[--backgroundWhite] container mx-5 md:mx-20 h-[80vh] p-8 rounded-3xl shadow-lg card overflow-auto"
+                                className="relative inset-0 bg-[--background] border border-[--textWhite] container mx-5 md:mx-20 h-[80vh] p-8 rounded-3xl shadow-lg card overflow-auto"
                             >
-                                <div className="w-full h-[200vh] flex flex-col gap-3 relative inset-0 overflow-y-scroll scroll-m-2">
+                                <div className="w-full flex flex-col gap-3 relative inset-0 overflow-y-scroll">
                                     <div className="flex gap-1">
-                                        <motion.h5 className="text-[4vw] md:text-[1vw] text-gray-600">{uke1.find(item => item.id === selectedId)?.subtitle || uke2.find(item => item.id === selectedId)?.subtitle}</motion.h5>
-                                        <motion.h5 className="text-[4vw] md:text-[1vw] text-gray-600">{uke1.find(item => item.id === selectedId)?.date || uke2.find(item => item.id === selectedId)?.date}</motion.h5>
+                                        <motion.h5 className="text-[4vw] md:text-[1vw] text-[--text]">{uke1.find(item => item.id === selectedId)?.subtitle || uke2.find(item => item.id === selectedId)?.subtitle}</motion.h5>
+                                        <motion.h5 className="text-[4vw] md:text-[1vw] text-[--text]">{uke1.find(item => item.id === selectedId)?.date || uke2.find(item => item.id === selectedId)?.date}</motion.h5>
                                     </div>
-                                    <motion.h2 className="text-[10vw] md:text-[3vw] text-gray-800 leading-10">{uke1.find(item => item.id === selectedId)?.title || uke2.find(item => item.id === selectedId)?.title}</motion.h2>
-                                    <motion.p className="text-[5vw] md:text-[1vw] my-5 text-gray-800">{uke1.find(item => item.id === selectedId)?.paragraph || uke2.find(item => item.id === selectedId)?.paragraph}</motion.p>
-                                    <Image src={uke1.find(item => item.id === selectedId)?.image || uke2.find(item => item.id === selectedId)?.image} alt="" className="absolute bottom-0 w-full max-h-1/3 object-cover rounded-2xl"></Image>
-                                    <motion.button 
-                                        onClick={() => setSelectedId(null)} 
-                                        className="absolute top-0 right-0 bg-[--primary] text-white m-5 px-6 p-4 rounded-full"
-                                    >
-                                        X
-                                    </motion.button>
+                                    <motion.h2 className="text-[10vw] md:text-[3vw] text-[--text] leading-10">{uke1.find(item => item.id === selectedId)?.title || uke2.find(item => item.id === selectedId)?.title}</motion.h2>
+                                    <motion.div className="text-[5vw] md:text-[1vw] my-5 text-[--text]">
+                                        {selectedId && (
+                                            <>
+                                                {uke1.find(item => item.id === selectedId)?.paragraphs.map(para => (
+                                                    <motion.p 
+                                                        key={para.id} 
+                                                        className="mb-10"
+                                                    >
+                                                        {para.text}
+                                                    </motion.p> 
+                                                )) || uke2.find(item => item.id === selectedId)?.paragraphs.map(para => (
+                                                    <motion.p 
+                                                        key={para.id}
+                                                        className="mb-10"
+                                                    >
+                                                        {para.text}
+                                                    </motion.p>
+                                                ))}
+                                            </>
+                                        )}
+                                    </motion.div>
                                 </div>
                             </motion.div>
                         </div>
@@ -139,4 +156,4 @@ export default function ContentTwo() {
             </div>
         </div>
     );
-};
+}

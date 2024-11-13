@@ -56,7 +56,7 @@ export default function ImageContent() {
     useEffect(() => {
         const timer = setTimeout(() => {
             setImagesLoaded(true);
-        }, 4000);
+        }, 6000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -76,7 +76,7 @@ export default function ImageContent() {
             onClick={() => handleCardClick(item.id)}
             className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[300px]"
         >
-            <div className={`absolute rounded-3xl inset-0 bg-gradient-to-br from-black to-gray-800 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
+            <div className={`absolute rounded-3xl inset-0 bg-gradient-to-br from-gray-800 to-gray-900 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
             <Image 
                 src={item.image} 
                 alt={`Image ${item.id}`} 
