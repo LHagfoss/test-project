@@ -11,7 +11,7 @@ const Joke: React.FC = () => {
         const res = await fetch('/api/jokes'); 
         if (!res.ok) {
           throw new Error('Failed to fetch joke');
-        }
+        };
         const data = await res.json();
         setJoke(data.joke);
       } catch (error: unknown) {
@@ -19,10 +19,10 @@ const Joke: React.FC = () => {
           setError(error.message);
         } else {
           setError('An unknown error occurred');
-        }
+        };
       } finally {
         setLoading(false);
-      }
+      };
     };
 
     fetchJoke();
@@ -43,27 +43,20 @@ const Joke: React.FC = () => {
         setError(error.message);
       } else {
         setError('An unknown error occurred');
-      }
+      };
     } finally {
       setLoading(false);
-    }
+    };
   };
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
+  if (loading) { return <p>Loading...</p>; };
+  if (error) { return <p>{error}</p>; };
 
   return (
-    <div className="w-[100vw] h-[100vh] flex items-center justify-center bg-[--background]">
-      <div className="text-[--textDark] p-4 bg-blue-100 rounded-md shadow-md">
-        <h2 className="text-xl font-bold mb-2">Random Joke</h2>
-        <p>{joke}</p>
-        <button onClick={handleNewJoke} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New</button>
-      </div>
+    <div className="text-[--textDark] p-4 bg-blue-100 rounded-md shadow-md">
+      <h2 className="text-xl font-bold mb-2">Random Joke</h2>
+      <p>{joke}</p>
+      <button onClick={handleNewJoke} className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">New</button>
     </div>
   );
 };

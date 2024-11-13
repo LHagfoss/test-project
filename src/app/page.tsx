@@ -24,7 +24,9 @@ const Home: React.FC = () => {
       <OmAvdelingen />
       <ImageContent />
       <ContentTwo />
-      <Joke />
+      <div className="w-[100vw] h-[100vh] flex items-center justify-center bg-[--background]">
+        <Joke />
+      </div>
       <Footer />
     </div>
   );
