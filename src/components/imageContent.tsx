@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { StaticImageData } from "next/image";
 import Image from "next/image";
 
 import image1 from '../../public/Images/IMG_1.jpg';
@@ -15,11 +16,12 @@ import image10 from '../../public/Images/IMG_10.jpg';
 
 interface Item {
     id: number;
-    image: any;
+    image: StaticImageData;
 }
 
 export default function ImageContent() {
     const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
+    const [imagesLoaded, setImagesLoaded] = useState(false);
 
     const uke1: Item[] = [
         { id: 11, image: image1 },
@@ -51,6 +53,14 @@ export default function ImageContent() {
         };
     }, [selectedImageId]);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setImagesLoaded(true);
+        }, 4000);
+
+        return () => clearTimeout(timer);
+    }, []);
+
     const handleCardClick = (id: number) => {
         if (selectedImageId === id) {
             return;
@@ -59,33 +69,33 @@ export default function ImageContent() {
         }
     };
 
+    const renderImage = (item: Item) => (
+        <motion.div 
+            key={item.id} 
+            layoutId={item.id.toString()} 
+            onClick={() => handleCardClick(item.id)}
+            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[400px]"
+        >
+            <div className={`absolute rounded-3xl inset-0 bg-gradient-to-br from-black to-gray-800 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
+            <Image 
+                src={item.image} 
+                alt={`Image ${item.id}`} 
+                fill 
+                style={{ objectFit: 'cover' }} 
+                className={`rounded-3xl w-full h-full ${imagesLoaded ? 'block' : 'hidden'}`}
+            />
+        </motion.div>
+    );
+
     return (
-        <div className="w-[100vw] flex justify-center mb-20">
+        <div className="w-[100vw] flex justify-center mb-20" id="imageContent">
             <div className="container md:mx-20 bg-[--background] flex flex-col gap-5 relative">
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-5 w-full md:h-[40vh] p-1 md:p-0">
-                    {uke1.map((item) => (
-                        <motion.div 
-                            key={item.id} 
-                            layoutId={item.id.toString()} 
-                            onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[400px]"
-                        >
-                            <Image src={item.image} alt={`Image ${item.id}`} className="object-cover rounded-3xl w-full h-full"/>
-                        </motion.div>
-                    ))}
+                <div className="grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
+                    {uke1.map(renderImage)}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
-                    {uke2.map((item) => (
-                        <motion.div 
-                            key={item.id} 
-                            layoutId={item.id.toString()} 
-                            onClick={() => handleCardClick(item.id)}
-                            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[400px]"
-                        >
-                            <Image src={item.image} alt={`Image ${item.id}`} className="object-cover rounded-3xl w-full h-full"/>
-                        </motion.div>
-                    ))}
+                    {uke2.map(renderImage)}
                 </div>
 
                 <AnimatePresence>
@@ -95,7 +105,13 @@ export default function ImageContent() {
                                 layoutId={selectedImageId.toString()} 
                                 className="relative inset-0 bg-white container mx-5 md:mx-20 h-[80vh] p-2 rounded-3xl shadow-lg card overflow-hidden"
                             >
-                                <Image src={uke1.find(item => item.id === selectedImageId)?.image || uke2.find(item => item.id === selectedImageId)?.image} alt="" layout="fill" objectFit="cover" className="w-full h-full"/>
+                                <div className={`absolute inset-0 bg-gradient-to-br from-black to-gray-800 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
+                                <Image 
+                                    src={uke1.find(item => item.id === selectedImageId)?.image || uke2.find(item => item.id === selectedImageId)?.image || ''} 
+                                    alt="" 
+                                    style={{ objectFit: 'cover' }}
+                                    className={`w-full max-h-1/3 ${imagesLoaded ? 'block' : 'hidden'}`}
+                                />
                                 <motion.button 
                                     onClick={() => setSelectedImageId(null)}
                                     className="absolute top-0 right-0 bg-[--primary] text-white m-5 px-6 p-4 rounded-full"
@@ -103,11 +119,10 @@ export default function ImageContent() {
                                     X
                                 </motion.button>
                             </motion.div>
-
                         </div>
                     )}
                 </AnimatePresence>
             </div>
         </div>
     );
-};
+}

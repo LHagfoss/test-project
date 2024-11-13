@@ -1,15 +1,18 @@
 "use client"
 
-import React, { useEffect } from "react"
-import Navbar from "@/components/navbar";
-import ScrollProgress from "@/components/scrollProgress";
-import ContentTwo from "@/components/contentTwo";
-import Footer from "@/components/footer";
-import ImageContent from "@/components/imageContent";
-import Intro from "@/components/intro";
+import React, { useEffect } from "react";
 
-export default function Home() {
-  useEffect( () => {
+import Joke from "@/components/joke";
+import Navbar from "@/components/navbar";
+import OmAvdelingen from "@/components/omAvdelingen";
+import ScrollProgress from "@/components/scrollProgress";
+import Footer from "@/components/footer";
+import Intro from "@/components/intro";
+import ContentTwo from "@/components/contentTwo";
+import ImageContent from "@/components/imageContent";
+
+const Home: React.FC = () => {
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
@@ -18,9 +21,13 @@ export default function Home() {
       <Navbar />
       <ScrollProgress />
       <Intro />
+      <OmAvdelingen />
       <ImageContent />
       <ContentTwo />
+      <Joke />
       <Footer />
     </div>
   );
-}
+};
+
+export default Home;

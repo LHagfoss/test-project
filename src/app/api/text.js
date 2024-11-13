@@ -20,7 +20,12 @@ export const texts = {
             Det var en produktiv dag med en fin blanding av strukturert arbeid og mulighet til å lære og kode.
         `,
         `
-            Paragraph 3
+            På onsdag startet jeg dagen med å ta det rolig den første timen, da det ikke var mange esker å pakke inn eller enheter som skulle pakkes. Jeg fortsatte derfor med å lese om Next.js 15 page routing for å optimalisere nettsiden min. Jeg lærte hvordan man kan preloade bilder og vente med å vise dem til alle bildene er ferdig renderet. Mens bildene renderer i bakgrunnen, bruker jeg noe som heter "Image Placeholder" som en gradient bakgrunn over bildene.
+            Rundt klokka 9 tok jeg meg en is, noe jeg fikk lov til. Jeg prøvde også kullsyremaskinen, som faktisk ikke smakte så verst.
+            Siden det ikke var mye å gjøre, tilbrakte jeg mesteparten av tiden med laptopen, og fortsatte å lære nye ting. Jeg satt for det meste for meg selv og arbeidet med å forbedre mine kunnskaper om Next.js og ulike webutviklingsteknikker.
+            Litt senere på dagen hjalp jeg også noen kolleger med å løse små problemer med deres enheter. Det var en rolig og produktiv dag med god tid til selvstudier og læring. Etter lunsj brukte jeg tid på å kode og finjustere noen prosjekter, og jeg fant ut at jeg virkelig liker å dykke dypt inn i tekniske emner når jeg har muligheten.
+            På slutten av dagen følte jeg at jeg hadde fått mye ut av tiden min, selv om arbeidsmengden var lavere enn vanlig. Det var en fin balanse mellom arbeid og læring, og jeg ser fram til å anvende det jeg har lært i fremtidige prosjekter.
+
         `,
         `
             Paragraph 4
