@@ -8,6 +8,7 @@
   --inverseText: #fbfbfe;  
   --textWhite: #fbfbfe;
   --textDark: #05030f;
+  --background: #fbfbfe;
   --inverseBackground: #05030f;
   --backgroundWhite:  #fbfbfe;
   --backgroundDark: #05030f;
@@ -36,6 +37,7 @@ body {
   color: var(--text);
   overflow-x: hidden;
   width: 100vw;
+  background: var(--background);
 };
 
 * {

@@ -121,7 +121,7 @@ export default function ContentTwo() {
                                 layoutId={selectedId.toString()} 
                                 className="relative inset-0 bg-[--background] border border-[--textWhite] container mx-5 md:mx-20 h-[80vh] p-8 rounded-3xl shadow-lg card overflow-auto"
                             >
-                                <div className="w-full flex flex-col gap-3 relative inset-0 overflow-y-scroll">
+                                <div className="bg-[--background] w-full flex flex-col gap-3 relative inset-0 overflow-y-scroll">
                                     <div className="flex gap-1">
                                         <motion.h5 className="text-[4vw] md:text-[1vw] text-[--text]">{uke1.find(item => item.id === selectedId)?.subtitle || uke2.find(item => item.id === selectedId)?.subtitle}</motion.h5>
                                         <motion.h5 className="text-[4vw] md:text-[1vw] text-[--text]">{uke1.find(item => item.id === selectedId)?.date || uke2.find(item => item.id === selectedId)?.date}</motion.h5>
