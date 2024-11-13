@@ -9,6 +9,7 @@ import ScrollProgress from "@/components/scrollProgress";
 import Footer from "@/components/footer";
 import Intro from "@/components/intro";
 import ContentTwo from "@/components/contentTwo";
+import { CarouselSpacing } from "@/components/carouselSpacing";
 import ImageContent from "@/components/imageContent";
 
 const Home: React.FC = () => {
@@ -24,6 +25,7 @@ const Home: React.FC = () => {
       <OmAvdelingen />
       <ImageContent />
       <ContentTwo />
+      <CarouselSpacing />
       <div className="w-[100vw] h-[100vh] flex items-center justify-center bg-[--background]">
         <Joke />
       </div>
