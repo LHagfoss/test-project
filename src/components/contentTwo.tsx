@@ -66,8 +66,8 @@ export default function ContentTwo() {
     };
 
     return (
-        <div className="w-[100vw] flex justify-center mb-20" id="hvaGjordeJeg">
-            <div className="container md:mx-20 bg-[--background] flex flex-col gap-5 relative">
+        <div className="w-[100vw] flex justify-center p-5 md:p-20 mb-20" id="hvaGjordeJeg">
+            <div className="container bg-[--background] flex flex-col gap-5 relative">
                 <div className="relative grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
                     {uke1.map((item) => (
                         <motion.div 

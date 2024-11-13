@@ -6,7 +6,7 @@ import FadeIn from "./fadeIn";
 export default function OmAvdelingen() {
     return (
         <FadeIn delay={0}>
-            <div className="w-[100vw] h-[100vh] flex justify-center md:p-20 items-center mb-20">
+            <div className="w-[100vw] h-[100vh] flex justify-center p-5 md:p-20 items-center mb-20">
                 <div className="container h-full bg-blue-100 md:rounded-3xl p-10 flex flex-col md:flex-row">
                     <div className="text-[--textDark] flex-1 flex flex-col justify-between">
                         <h1 className="md:text-[2.5vw] font-bold">Om selve IT-Avdelingen</h1>
@@ -27,12 +27,21 @@ export default function OmAvdelingen() {
                                 Jeg har hatt det gøy her og lært mye om drift og brukerstøtte, her i Kristiansand kommunene IT-avdelingen. 
                                 Jeg kanskje kunne ha jobbet her i tidligere framtid, men jeg heller foretrekker IT-utvikling.
                             </p>
-                            <button type="button" className="bg-[--primary] py-5 rounded-lg text-[--inverseText]" onClick={() => {
-                                const element = document.getElementById('imageContent');
-                                if (element) {
-                                    window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
-                                }
-                            }}>Gå ned</button>
+                            <div className="w-full flex gap-5">
+                                <button type="button" className="w-full bg-[--primary] py-5 rounded-lg text-[--inverseText]" onClick={() => {
+                                    const element = document.getElementById('imageContent');
+                                    if (element) {
+                                        window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+                                    }
+                                }}>Gå ned</button>
+
+                                <button type="button" className="w-full bg-[--primary] py-5 rounded-lg text-[--inverseText]" onClick={() => {
+                                    const element = document.getElementById('footer');
+                                    if (element) {
+                                        window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+                                    }
+                                }}>Gå helt ned</button>
+                            </div>
                         </div>
                     </div>
                     <div className="flex-1 hidden md:flex justify-center items-center">

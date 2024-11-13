@@ -9,11 +9,15 @@ const jokes = [
   { joke: "Why don't eggs tell jokes? They'd crack each other up." },
   { joke: "Why did the tomato turn red? Because it saw the salad dressing!" },
   { joke: "What do you call a fake noodle? An impasta." },
-  { joke: "Why did the scarecrow win an award? Because he was outstanding in his field!" },
   { joke: "Why did the bicycle fall over? Because it was two-tired." },
 ];
 
 export async function GET() {
-  const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
-  return NextResponse.json(randomJoke);
+  try {
+    const randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+    return NextResponse.json(randomJoke);
+  } catch (error) {
+    console.error('Error fetching joke:', error);
+    return NextResponse.error();
+  }
 } 

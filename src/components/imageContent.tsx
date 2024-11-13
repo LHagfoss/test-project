@@ -74,7 +74,7 @@ export default function ImageContent() {
             key={item.id} 
             layoutId={item.id.toString()} 
             onClick={() => handleCardClick(item.id)}
-            className="cursor-pointer rounded-3xl shadow-md relative inset-0 max-h-[400px]"
+            className="cursor-pointer rounded-3xl shadow-md relative inset-0 min-h-[300px]"
         >
             <div className={`absolute rounded-3xl inset-0 bg-gradient-to-br from-black to-gray-800 ${imagesLoaded ? 'hidden' : 'block'} animate-pulse`}></div>
             <Image 
@@ -88,13 +88,13 @@ export default function ImageContent() {
     );
 
     return (
-        <div className="w-[100vw] flex justify-center mb-20" id="imageContent">
-            <div className="container md:mx-20 bg-[--background] flex flex-col gap-5 relative">
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
+        <div className="w-[100vw] flex justify-center p-5 md:p-20 mb-20" id="imageContent">
+            <div className="container bg-[--background] flex flex-col gap-5 relative">
+                <div className="grid grid-cols-1 md:grid-cols-5 md:h-[40vh] gap-5 p-1 md:p-0">
                     {uke1.map(renderImage)}
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
+                <div className="grid grid-cols-1 md:grid-cols-5 md:h-[40vh] gap-5 p-1 md:p-0">
                     {uke2.map(renderImage)}
                 </div>
 
@@ -109,6 +109,7 @@ export default function ImageContent() {
                                 <Image 
                                     src={uke1.find(item => item.id === selectedImageId)?.image || uke2.find(item => item.id === selectedImageId)?.image || ''} 
                                     alt="" 
+                                    fill
                                     style={{ objectFit: 'cover' }}
                                     className={`w-full h-full ${imagesLoaded ? 'block' : 'hidden'}`}
                                 />

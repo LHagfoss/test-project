@@ -5,7 +5,7 @@ export default function Footer() {
 
     return (
         <FadeIn delay={0}>
-            <div className="relative bg-[#2f27ce] w-[100vw] h-[100vh] md:h-[70vh] flex justify-center items-center -z-10 overflow-hidden">
+            <div className="relative bg-[#2f27ce] w-[100vw] h-[100vh] md:h-[70vh] flex justify-center items-center -z-10 overflow-hidden" id="footer">
                 <div className="container h-full md:mx-20 flex flex-col md:flex-row justify-between items-center text-[--text] overflow-hidden">
                     <div className="w-full h-full flex flex-col overflow-hidden">
                         <div className="flex-[3] md:flex-[4] mt-10 overflow-hidden">
