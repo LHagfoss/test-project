@@ -34,7 +34,11 @@
 body {
   color: var(--text);
   background: var(--background);
-  font-family: "Inter";
   overflow-x: hidden;
   width: 100vw;
 };
+
+* {
+  scroll-behavior: smooth;
+  font-family: "Inter";
+}

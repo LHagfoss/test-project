@@ -66,7 +66,7 @@ export default function ContentTwo() {
     };
 
     return (
-        <div className="w-[100vw] flex justify-center mb-20">
+        <div className="w-[100vw] flex justify-center mb-20" id="hvaGjordeJeg">
             <div className="container md:mx-20 bg-[--background] flex flex-col gap-5 relative">
                 <div className="relative grid grid-cols-1 md:grid-cols-5 gap-5 md:h-[40vh] p-1 md:p-0">
                     {uke1.map((item) => (
@@ -124,7 +124,7 @@ export default function ContentTwo() {
                                     </div>
                                     <motion.h2 className="text-[10vw] md:text-[3vw] text-gray-800 leading-10">{uke1.find(item => item.id === selectedId)?.title || uke2.find(item => item.id === selectedId)?.title}</motion.h2>
                                     <motion.p className="text-[5vw] md:text-[1vw] my-5 text-gray-800">{uke1.find(item => item.id === selectedId)?.paragraph || uke2.find(item => item.id === selectedId)?.paragraph}</motion.p>
-                                    <Image src={uke1.find(item => item.id === selectedId)?.image || uke2.find(item => item.id === selectedId)?.image} alt="" className="absolute bottom-0 w-full h-1/3 object-cover rounded-2xl"></Image>
+                                    <Image src={uke1.find(item => item.id === selectedId)?.image || uke2.find(item => item.id === selectedId)?.image} alt="" className="absolute bottom-0 w-full h-1/3 object-cover rounded-2xl" layout="fill" objectFit="cover"></Image>
                                     <motion.button 
                                         onClick={() => setSelectedId(null)} 
                                         className="absolute top-0 right-0 bg-[--primary] text-white m-5 px-6 p-4 rounded-full"

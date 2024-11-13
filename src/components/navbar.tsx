@@ -54,7 +54,7 @@ export default function Navbar() {
                 <div className="container hidden md:flex justify-between items-center">
                     <h1 className="text-[1.5vw] font-bold">LHagfoss</h1>
                     <div className="flex gap-3">
-                        <Link href="/" className="px-4 py-2 rounded-md hover:underline">
+                        <Link href="#hvaGjordeJeg" className="px-4 py-2 rounded-md hover:underline">
                             <AnimatedText text="Hva gjorde jeg?" delay={0.5} />
                         </Link>
                         <Link href="/" className="px-4 py-2 rounded-md hover:underline">
