@@ -130,14 +130,14 @@ export default function ContentTwo() {
                                     <motion.div className="text-[5vw] md:text-[1vw] my-5 text-[--text]">
                                         {selectedId && (
                                             <>
-                                                {uke1.find(item => item.id === selectedId)?.paragraphs.map(para => (
+                                                {uke1.find(item => item.id === selectedId)?.paragraphs.map((para: { id: number; text: string }) => (
                                                     <motion.p 
                                                         key={para.id} 
                                                         className="mb-10"
                                                     >
                                                         {para.text}
                                                     </motion.p> 
-                                                )) || uke2.find(item => item.id === selectedId)?.paragraphs.map(para => (
+                                                )) || uke2.find(item => item.id === selectedId)?.paragraphs.map((para: { id: number; text: string }) => (
                                                     <motion.p 
                                                         key={para.id}
                                                         className="mb-10"
