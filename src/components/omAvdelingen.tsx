@@ -27,7 +27,12 @@ export default function OmAvdelingen() {
                                 Jeg har hatt det gøy her og lært mye om drift og brukerstøtte, her i Kristiansand kommunene IT-avdelingen. 
                                 Jeg kanskje kunne ha jobbet her i tidligere framtid, men jeg heller foretrekker IT-utvikling.
                             </p>
-                            <button type="button" className="bg-[--primary] py-5 rounded-lg text-[--inverseText]" onClick={() => window.scrollTo({ top: document.getElementById('imageContent').offsetTop, behavior: 'smooth' })}>Gå ned</button>
+                            <button type="button" className="bg-[--primary] py-5 rounded-lg text-[--inverseText]" onClick={() => {
+                                const element = document.getElementById('imageContent');
+                                if (element) {
+                                    window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+                                }
+                            }}>Gå ned</button>
                         </div>
                     </div>
                     <div className="flex-1 hidden md:flex justify-center items-center">
